@@ -14,7 +14,7 @@
   "license": "MIT",
   "scripts": {
     "build": "rollup -c rollup.config.js",
-    "check:types": "tsc",
+    "check:types": "tsc --noEmit",
     "clean": "rimraf ./dist ./node_modules/.cache",
     "format": "prettier --write **/*.{ts,tsx,d.ts,js}",
     "lint": "eslint **/*.{ts,tsx}",

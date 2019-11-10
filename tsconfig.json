@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "declaration": true,
     "esModuleInterop": true,
     "jsx": "react",
     "lib": ["dom", "esnext"],
