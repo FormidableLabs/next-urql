@@ -22,7 +22,7 @@ Using GraphQL with server-side rendering in React is a challenging problem. Curr
 Install `next-urql` along with its `peerDependencies`.
 
 ```sh
-yarn add next-urql react-is styled-components isomorphic-unfetch
+npm install --save next-urql react-is styled-components isomorphic-unfetch
 ```
 
 `react-is`, `styled-components`, and `isomorphic-unfetch` help to support server-side `Suspense` with `react-ssr-prepass`. This assumes you have followed the basic installation steps for `urql` [here](https://github.com/FormidableLabs/urql#installation).
@@ -61,6 +61,10 @@ export default withUrqlClient({ url: 'https://graphql-pokemon.now.sh' })(Root);
 ```
 
 Read more below in the [API](#API) section to learn more about the arguments that can be passed to `withUrqlClient`.
+
+#### Integration with `_app.js`
+
+Next allows you to override the root of your application using a special page called [`_app.js`](https://nextjs.org/docs#custom-app). If you want to have all GraphQL requests in your application fetched on the server-side, you _could_ wrap the component exported by `_app.js` in `withUrqlClient`. However, be aware that this will opt you out of [automatic static optimization](https://nextjs.org/docs#automatic-static-optimization) for your entire application. In general, it's recommended practice to only use `withUrqlClient` on the pages that have GraphQL operations in their component tree. Read more in the [Caveats](#Caveats) section.
 
 ### API
 

@@ -14,11 +14,12 @@
   "license": "MIT",
   "scripts": {
     "build": "rollup -c rollup.config.js",
+    "check": "run-s check:types test lint format",
     "check:types": "tsc --noEmit",
     "clean": "rimraf ./dist ./node_modules/.cache",
     "format": "prettier --write **/*.{ts,tsx,d.ts,js}",
     "lint": "eslint **/*.{ts,tsx}",
-    "prepublishOnly": "run-s clean test build",
+    "preversion": "run-s clean test build",
     "test": "jest"
   },
   "devDependencies": {
@@ -62,7 +63,7 @@
     "urql": "^1.6.1"
   },
   "dependencies": {
-    "react-ssr-prepass": "^1.0.7"
+    "react-ssr-prepass": "^1.0.8"
   },
   "peerDependencies": {
     "isomorphic-unfetch": "^3.0.0",
