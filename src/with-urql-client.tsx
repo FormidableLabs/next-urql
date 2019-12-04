@@ -52,6 +52,7 @@ const withUrqlClient = <T extends {}>(
       typeof clientOptions === 'function'
         ? clientOptions(props.ctx)
         : clientOptions;
+
     const urqlClient = React.useMemo(
       () =>
         props.urqlClient ||
