@@ -44,19 +44,14 @@ const withUrqlClient = <T extends {}>(
   App: NextComponentClass<T & WithUrqlClient> | NextFC<T & WithUrqlClient>,
 ) => {
   const withUrql: NextFC<
-    T & WithUrqlClient & WithUrqlState & { ctx: NextContextWithAppTree },
+    T & WithUrqlClient & WithUrqlState & { clientOptions: ClientOptions },
     T & WithUrqlState,
     NextContextWithAppTree
   > = props => {
-    const opts =
-      typeof clientOptions === 'function'
-        ? clientOptions(props.ctx)
-        : clientOptions;
-
     const urqlClient = React.useMemo(
       () =>
         props.urqlClient ||
-        initUrqlClient(opts, mergeExchanges, props.urqlState)[0],
+        initUrqlClient(props.clientOptions, mergeExchanges, props.urqlState)[0],
       [],
     );
 
@@ -108,8 +103,8 @@ const withUrqlClient = <T extends {}>(
     return {
       ...appProps,
       urqlState,
-      ctx,
-    } as T & WithUrqlState & { ctx: NextContextWithAppTree };
+      clientOptions: opts,
+    } as T & WithUrqlState & { clientOptions: ClientOptions };
   };
 
   return withUrql;
