@@ -27,16 +27,8 @@ declare const withUrqlClient: <T = any, IP = any>(
   mergeExchanges?: (ssrEx: SSRExchange) => Exchange[],
 ) => (
   App:
-    | NextComponentClass<
-        T & IP & WithUrqlClient,
-        T & IP & WithUrqlClient,
-        NextContext<Record<string, string | string[] | undefined>, {}>
-      >
-    | NextFC<
-        T & IP & WithUrqlClient,
-        T & IP & WithUrqlClient,
-        NextContext<Record<string, string | string[] | undefined>, {}>
-      >,
+    | NextComponentClass<T & IP & WithUrqlClient, T & IP & WithUrqlClient>
+    | NextFC<T & IP & WithUrqlClient, T & IP & WithUrqlClient>,
 ) => NextFC<
   T & IP & WithUrqlClient & WithUrqlInitialProps,
   IP | (IP & WithUrqlInitialProps),
