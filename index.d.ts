@@ -14,6 +14,10 @@ interface WithUrqlInitialProps {
   clientOptions: NextUrqlClientOptions;
 }
 
+interface PageProps {
+  pageProps?: WithUrqlClient;
+}
+
 export interface NextContextWithAppTree extends NextContext {
   AppTree: React.ComponentType<any>;
 }
@@ -26,11 +30,11 @@ declare const withUrqlClient: <T = any, IP = any>(
   clientOptions: NextUrqlClientConfig,
   mergeExchanges?: (ssrEx: SSRExchange) => Exchange[],
 ) => (
-  App:
+  Page:
     | NextComponentClass<T & IP & WithUrqlClient, T & IP & WithUrqlClient>
     | NextFC<T & IP & WithUrqlClient, T & IP & WithUrqlClient>,
 ) => NextFC<
-  T & IP & WithUrqlClient & WithUrqlInitialProps,
+  T & IP & WithUrqlClient & WithUrqlInitialProps & PageProps,
   IP | (IP & WithUrqlInitialProps),
   NextContextWithAppTree
 >;
