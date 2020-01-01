@@ -1,8 +1,6 @@
-## `next-urql` – Page Component Example
+## `next-urql` - `_app.js` Example
 
-This example is a small reference of how to integrate `next-urql` with your NextJS application by wrapping a Page component. The project is a small Pokedex querying the excellent [Pokemon GraphQL API](https://github.com/lucasbento/graphql-pokemon).
-
-See this example on [CodeSandbox](https://codesandbox.io/s/next-urql-pokedex-oqj3x).
+This example is a small reference of how to integrate `next-urql` with your NextJS application by wrapping the component exported in `_app.js`. The project is a small Pokedex querying the excellent [Pokemon GraphQL API](https://github.com/lucasbento/graphql-pokemon).
 
 ### Installation
 
