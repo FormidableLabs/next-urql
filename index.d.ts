@@ -6,7 +6,7 @@ import { SSRExchange, SSRData } from 'urql/dist/types/exchanges/ssr';
 type NextUrqlClientOptions = Omit<ClientOptions, 'exchanges' | 'suspense'>;
 
 interface WithUrqlClient {
-  urqlClient: Client;
+  urqlClient?: Client;
 }
 
 interface WithUrqlInitialProps {
@@ -31,8 +31,8 @@ declare const withUrqlClient: <T = any, IP = any>(
   mergeExchanges?: (ssrEx: SSRExchange) => Exchange[],
 ) => (
   Page:
-    | NextComponentClass<T & IP & WithUrqlClient, T & IP & WithUrqlClient>
-    | NextFC<T & IP & WithUrqlClient, T & IP & WithUrqlClient>,
+    | NextComponentClass<T & IP & WithUrqlClient, IP>
+    | NextFC<T & IP & WithUrqlClient, IP>,
 ) => NextFC<
   T & IP & WithUrqlClient & WithUrqlInitialProps & PageProps,
   IP | (IP & WithUrqlInitialProps),
