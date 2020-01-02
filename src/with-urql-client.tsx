@@ -1,16 +1,17 @@
-import { NextComponentClass, NextContext, NextFC } from 'next';
 import React from 'react';
+import { NextComponentClass, NextFC, NextContext } from 'next';
 import ssrPrepass from 'react-ssr-prepass';
 import {
-  cacheExchange,
+  Provider,
   Client,
   ClientOptions,
   dedupExchange,
-  Exchange,
+  cacheExchange,
   fetchExchange,
-  Provider,
+  Exchange,
 } from 'urql';
-import { SSRData, SSRExchange } from 'urql/dist/types/exchanges/ssr';
+import { SSRExchange, SSRData } from 'urql/dist/types/exchanges/ssr';
+
 import { initUrqlClient } from './init-urql-client';
 
 type NextUrqlClientOptions = Omit<ClientOptions, 'exchanges' | 'suspense'>;
