@@ -16,6 +16,7 @@ interface WithUrqlInitialProps {
 
 interface PageProps {
   pageProps?: WithUrqlClient;
+  urqlClient: Client;
 }
 
 export interface NextContextWithAppTree extends NextContext {
