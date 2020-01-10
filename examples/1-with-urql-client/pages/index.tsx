@@ -1,8 +1,8 @@
 import React from 'react';
 import Head from 'next/head';
-import { NextPageContext } from 'next';
 import { withUrqlClient } from 'next-urql';
 
+import { NextContext } from '../../../node_modules/@types/next/index';
 import PokémonList from '../components/pokemon_list';
 
 const Home: React.FC = () => (
@@ -16,7 +16,7 @@ const Home: React.FC = () => (
   </div>
 );
 
-export default withUrqlClient((ctx: NextPageContext) => {
+export default withUrqlClient((ctx: NextContext) => {
   return {
     url: 'https://graphql-pokemon.now.sh',
     fetchOptions: {
