@@ -1,12 +1,8 @@
 import React from 'react';
 import { withUrqlClient } from 'next-urql';
+import { AppPropsType } from 'next/dist/next-server/lib/utils';
 
-interface IApp {
-  Component: React.FC;
-  pageProps: Record<string, any>;
-}
-
-const App: React.FC<IApp> = ({ Component, pageProps }) => (
+const App: React.FC<AppPropsType> = ({ Component, pageProps }) => (
   <Component {...pageProps} />
 );
 
