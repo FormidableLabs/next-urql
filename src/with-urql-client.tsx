@@ -72,7 +72,7 @@ function withUrqlClient<T = any, IP = any>(
       );
     };
 
-    withUrql.getInitialProps = async (ctx: NextUrqlContext) => {
+    withUrql.getInitialProps = async (ctx: NextPageContext) => {
       const { AppTree } = ctx;
 
       const opts =
@@ -80,7 +80,7 @@ function withUrqlClient<T = any, IP = any>(
       const [urqlClient, ssrCache] = initUrqlClient(opts);
 
       if (urqlClient) {
-        ctx.urqlClient = urqlClient;
+        (ctx as NextUrqlContext).urqlClient = urqlClient;
       }
 
       // Run the wrapped component's getInitialProps function.

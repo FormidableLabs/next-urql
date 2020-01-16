@@ -96,7 +96,7 @@ describe('withUrqlClient', () => {
       Component = withUrqlClient(ctx => ({
         url: 'http://localhost:3000',
         fetchOptions: {
-          headers: { Authorization: ctx.req ? ctx.req.headers.cookie : null },
+          headers: { Authorization: ctx.req!.headers.cookie as string },
         },
       }))(MockApp);
     });
