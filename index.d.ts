@@ -1,5 +1,5 @@
 import React from 'react';
-import { NextPageContext, NextPage, NextComponentType } from 'next/types';
+import { NextPageContext, NextPage, NextComponentType } from 'next';
 import { Client, ClientOptions, Exchange } from 'urql';
 import { SSRExchange, SSRData } from 'urql/dist/types/exchanges/ssr';
 

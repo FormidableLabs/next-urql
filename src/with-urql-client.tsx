@@ -1,5 +1,5 @@
 import React from 'react';
-import { NextPage, NextPageContext, NextComponentType } from 'next/types';
+import { NextPage, NextPageContext, NextComponentType } from 'next';
 import ssrPrepass from 'react-ssr-prepass';
 import {
   Provider,
