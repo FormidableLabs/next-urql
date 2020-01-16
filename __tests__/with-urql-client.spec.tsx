@@ -88,7 +88,7 @@ describe('withUrqlClient', () => {
         headers: {
           cookie: token,
         },
-      },
+      } as NextUrqlContext['req'],
       urqlClient: {} as Client,
     };
 
