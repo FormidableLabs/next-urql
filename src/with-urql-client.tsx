@@ -86,7 +86,7 @@ function withUrqlClient<T = any, IP = any>(
       // Run the wrapped component's getInitialProps function.
       let pageProps = {} as IP;
       if (Page.getInitialProps) {
-        pageProps = await Page.getInitialProps(ctx);
+        pageProps = await Page.getInitialProps(ctx as NextUrqlContext);
       }
 
       /**
