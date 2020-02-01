@@ -26,7 +26,7 @@ jobs:
         - yarn lint
     - stage: Check Formatting
       script:
-        - yarn format:check
+        - yarn check:format
     - stage: Test
       script:
         - yarn test
