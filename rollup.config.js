@@ -5,6 +5,7 @@ import babel from 'rollup-plugin-babel';
 import typescript from 'rollup-plugin-typescript2';
 import { terser } from 'rollup-plugin-terser';
 import replace from '@rollup/plugin-replace';
+import buble from '@rollup/plugin-buble';
 
 import pkg from './package.json';
 
@@ -85,12 +86,31 @@ const makePlugins = isProduction =>
         exclude: ['__tests__/**/*'],
       },
     }),
+    buble({
+      transforms: {
+        unicodeRegExp: false,
+        dangerousForOf: true,
+        dangerousTaggedTemplateString: true,
+        generator: false,
+      },
+      objectAssign: 'Object.assign',
+      exclude: 'node_modules/**',
+    }),
     babel({
       babelrc: false,
       extensions,
       include: ['src/**/*'],
       exclude: 'node_modules/**',
-      plugins: ['@babel/plugin-transform-object-assign'],
+      plugins: [
+        '@babel/plugin-transform-object-assign',
+        [
+          'babel-plugin-transform-async-to-promises',
+          {
+            inlineHelpers: true,
+            externalHelpers: true,
+          },
+        ],
+      ],
     }),
     isProduction &&
       replace({
