@@ -6,15 +6,16 @@
   "bugs": {
     "url": "https://github.com/FormidableLabs/next-urql/issues"
   },
-  "main": "dist/next-urql.min.js",
-  "module": "dist/next-urql.es.min.js",
+  "main": "dist/next-urql.js",
+  "module": "dist/next-urql.es.js",
   "source": "src/index.ts",
-  "types": "index.d.ts",
+  "types": "dist/types/index.d.ts",
   "author": "Formidable",
   "license": "MIT",
   "scripts": {
     "build": "rollup -c rollup.config.js",
-    "check": "run-s check:types test lint format",
+    "check:ci": "run-s check:types lint format test",
+    "check:format": "prettier --check {src,__tests__,examples}/*.{ts,tsx,d.ts,js}",
     "check:types": "tsc --noEmit",
     "clean": "rimraf ./dist ./node_modules/.cache",
     "format": "prettier --write {src,__tests__,examples}/*.{ts,tsx,d.ts,js}",

@@ -73,6 +73,15 @@ const makePlugins = isProduction =>
           sourceMap: true,
         },
       },
+      tsconfigOverride: {
+        compilerOptions: {
+          declaration: !isProduction,
+          declarationDir: './dist/types',
+          target: 'es6',
+        },
+        include: ['src/**/*'],
+        exclude: ['__tests__/**/*'],
+      },
     }),
     babel({ extensions, include: ['src/**/*'], exclude: 'node_modules/**' }),
     isProduction &&
