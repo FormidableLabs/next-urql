@@ -1,9 +1,10 @@
-import commonjs from 'rollup-plugin-commonjs';
-import resolve from 'rollup-plugin-node-resolve';
+/* eslint-disable @typescript-eslint/camelcase */
+import commonjs from '@rollup/plugin-commonjs';
+import resolve from '@rollup/plugin-node-resolve';
 import babel from 'rollup-plugin-babel';
 import typescript from 'rollup-plugin-typescript2';
 import { terser } from 'rollup-plugin-terser';
-import replace from 'rollup-plugin-replace';
+import replace from '@rollup/plugin-replace';
 
 import pkg from './package.json';
 
@@ -61,6 +62,7 @@ const makePlugins = isProduction =>
       ignoreGlobal: true,
       include: /\/node_modules\//,
       namedExports: {
+        // eslint-disable-next-line @typescript-eslint/no-var-requires
         react: Object.keys(require('react')),
       },
     }),
@@ -83,7 +85,13 @@ const makePlugins = isProduction =>
         exclude: ['__tests__/**/*'],
       },
     }),
-    babel({ extensions, include: ['src/**/*'], exclude: 'node_modules/**' }),
+    babel({
+      babelrc: false,
+      extensions,
+      include: ['src/**/*'],
+      exclude: 'node_modules/**',
+      plugins: ['@babel/plugin-transform-object-assign'],
+    }),
     isProduction &&
       replace({
         'process.env.NODE_ENV': JSON.stringify('production'),
