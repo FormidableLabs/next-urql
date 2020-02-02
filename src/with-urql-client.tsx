@@ -72,11 +72,9 @@ function withUrqlClient<T = any, IP = any>(
       );
     };
 
-    // Set the correct displayName in development.
-    if (process.env.NODE_ENV !== 'production') {
-      const displayName = Page.displayName || Page.name || 'Component';
-      withUrql.displayName = `withUrqlClient(${displayName})`;
-    }
+    // Set the displayName to indicate use of withUrqlClient.
+    const displayName = Page.displayName || Page.name || 'Component';
+    withUrql.displayName = `withUrqlClient(${displayName})`;
 
     withUrql.getInitialProps = async (ctx: NextPageContext) => {
       const { AppTree } = ctx;
