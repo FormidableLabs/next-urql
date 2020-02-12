@@ -6,7 +6,6 @@ export const urlExchange = ({ forward }: ExchangeInput) => {
     return pipe(
       operations$,
       map(op => {
-        console.log({ op });
         if (process.browser) {
           op.context.url = 'https://metaphysics-production.artsy.net/';
         }
