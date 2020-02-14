@@ -62,7 +62,7 @@ function withUrqlClient<T = any, IP = any>(
       const client = React.useMemo(() => {
         const clientOptions =
           typeof clientConfig === 'function' ? clientConfig() : clientConfig;
-
+        console.log('I get called server-side', urqlClient);
         return (
           urqlClient ||
           pageProps?.urqlClient ||
@@ -91,7 +91,6 @@ function withUrqlClient<T = any, IP = any>(
         typeof clientConfig === 'function'
           ? clientConfig(isApp ? appCtx : (ctx as NextPageContext))
           : clientConfig;
-      console.log({ opts });
       const [urqlClient, ssrCache] = initUrqlClient(opts, mergeExchanges);
 
       if (urqlClient) {
