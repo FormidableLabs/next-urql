@@ -36,11 +36,6 @@ jobs:
         - yarn check:format
     - <<: *checkFormatting
       node_js: 12
-    - &test
-      stage: Test
-      script:
-    - <<: *test
-      node_js: 12
     - &build
       stage: Build
       script:
