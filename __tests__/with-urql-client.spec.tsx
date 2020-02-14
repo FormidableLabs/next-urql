@@ -20,16 +20,12 @@ const MockAppTree: React.FC = () => {
 };
 
 describe('withUrqlClient', () => {
-  beforeAll(() => {
-    configure({ adapter: new Adapter() });
-  });
-
   const spyInitUrqlClient = jest.spyOn(init, 'initUrqlClient');
   const mockMergeExchanges = jest.fn(() => defaultExchanges);
   let Component: NextComponentType<any>;
 
-  beforeEach(() => {
-    Component = withUrqlClient({ url: 'http://localhost:3000' })(MockApp);
+  beforeAll(() => {
+    configure({ adapter: new Adapter() });
   });
 
   afterEach(() => {
@@ -38,6 +34,10 @@ describe('withUrqlClient', () => {
   });
 
   describe('with client options', () => {
+    beforeEach(() => {
+      Component = withUrqlClient({ url: 'http://localhost:3000' })(MockApp);
+    });
+
     const mockContext: NextUrqlContext = {
       AppTree: MockAppTree,
       pathname: '/',
