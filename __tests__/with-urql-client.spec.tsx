@@ -25,6 +25,7 @@ describe('withUrqlClient', () => {
   });
 
   const spyInitUrqlClient = jest.spyOn(init, 'initUrqlClient');
+  const mockMergeExchanges = jest.fn(() => defaultExchanges);
   let Component: NextComponentType<any>;
 
   beforeEach(() => {
@@ -33,6 +34,7 @@ describe('withUrqlClient', () => {
 
   afterEach(() => {
     spyInitUrqlClient.mockClear();
+    mockMergeExchanges.mockClear();
   });
 
   describe('with client options', () => {
@@ -69,7 +71,7 @@ describe('withUrqlClient', () => {
   });
 
   describe('with ctx callback to create client options', () => {
-    // Simulate a token that might be passed in a request to the server-render application.
+    // Simulate a token that might be passed in a request to the server-rendered application.
     const token = Math.random()
       .toString(36)
       .slice(-10);
@@ -86,8 +88,6 @@ describe('withUrqlClient', () => {
       } as NextUrqlContext['req'],
       urqlClient: {} as Client,
     };
-
-    const mockMergeExchanges = jest.fn(() => defaultExchanges);
 
     beforeEach(() => {
       Component = withUrqlClient(
@@ -115,8 +115,6 @@ describe('withUrqlClient', () => {
   });
 
   describe('with mergeExchanges provided', () => {
-    const mockMergeExchanges = jest.fn(() => defaultExchanges);
-
     beforeEach(() => {
       Component = withUrqlClient(
         { url: 'http://localhost:3000' },
