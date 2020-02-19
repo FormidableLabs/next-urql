@@ -7213,10 +7213,10 @@ react-is@^16.10.2, react-is@^16.12.0, react-is@^16.6.0, react-is@^16.8.1, react-
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.12.0.tgz#2cc0fe0fba742d97fd527c42a13bec4eeb06241c"
   integrity sha512-rPCkf/mWBtKc97aLL9/txD8DZdemK0vkA3JMLShjlJB3Pj3s+lpf1KaBzMfQrAmhMQB0n1cU/SUGgKKBCe837Q==
 
-react-ssr-prepass@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/react-ssr-prepass/-/react-ssr-prepass-1.1.1.tgz#276316d01d239895ea9aecdfecf043b94a37685e"
-  integrity sha512-V/26ZvW/rGlljy6GIoxnamImrGpRF9iuvBk2Pw82rfw/Ytevo2n9+zAIMmsMxJagIUojvVWhQhYEUCQ48UZm0w==
+react-ssr-prepass@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/react-ssr-prepass/-/react-ssr-prepass-1.1.2.tgz#3a7b60798e8f8a7002cd34fad48420937d3285f7"
+  integrity sha512-z1FN7yO+a+C5Y0wDLhsseIBX3yn823cXjs5MuyKRtrSDIVNsYKUIB7++vc4uqI5eMSr8kpYjFgc1i6iJRUuJdQ==
   dependencies:
     object-is "^1.0.2"
 
