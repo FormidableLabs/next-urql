@@ -1,5 +1,5 @@
 import React from 'react';
-import { NextPageContext, NextComponentType } from 'next';
+import { NextComponentType } from 'next';
 import Head from 'next/head';
 import { withUrqlClient, NextUrqlPageContext } from 'next-urql';
 import PokémonList from '../components/pokemon_list';
@@ -34,8 +34,7 @@ export default withUrqlClient((ctx: NextUrqlPageContext) => {
     url: 'https://graphql-pokemon.now.sh',
     fetchOptions: {
       headers: {
-        Authorization: `Bearer ${(ctx as NextPageContext)?.req?.headers
-          ?.authorization ?? ''}`,
+        Authorization: `Bearer ${ctx?.req?.headers?.authorization ?? ''}`,
       },
     },
   };
