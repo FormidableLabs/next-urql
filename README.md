@@ -1,3 +1,9 @@
+## Project Moved
+
+As of March 7, 2020, `next-urql` has been moved into a core package in the [`urql` monorepo](https://github.com/FormidableLabs/urql). In an effort to better consolidate and centralize work on the extended `urql` ecosystem, we at Formidable feels it makes sense to group these projects under a single umbrella. This also promotes better discoverability for contributors and future maintainers.
+
+All new issues, pull requests, and code discussion for this project should happen there. All new releases will be published from that package. Thanks so much for using `next-urql`!
+
 <div align="center">
   <img src="assets/next_logo.png" alt="NextJS" height="200" width="200">
   <img src="assets/urql_logo.png" alt="urql" height="200" width="200">
